@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhamed Ayman - Flutter Developer & Technical Support Specialist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #00d4ff;
+            --secondary: #ff6b6b;
+            --accent: #4ecdc4;
+            --bg-dark: #0a0a0f;
+            --bg-card: #1a1a24;
+            --text-light: #e2e8f0;
+            --text-gray: #94a3b8;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .code-font { font-family: 'JetBrains Mono', monospace; }
+        
+        .gradient-text { 
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+        }
+        
+        .flutter-gradient {
+            background: linear-gradient(135deg, #02569B, #0175C2, #13B9FD);
+        }
+        
+        .skill-bar {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 2s ease;
+            border-radius: 3px;
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            margin: 4px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .project-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .project-card:hover::before {
+            left: 100%;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--bg-dark);
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-lg z-50 border-b border-gray-700/50">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <div class="text-2xl font-bold">
+                <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                    Muhamed Ayman
+                </span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="relative text-gray-300 hover:text-white transition-colors duration-300 group">
+                    Home
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#about" class="relative text-gray-300 hover:text-white transition-colors duration-300 group">
+                    About
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#projects" class="relative text-gray-300 hover:text-white transition-colors duration-300 group">
+                    Projects
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="relative text-gray-300 hover:text-white transition-colors duration-300 group">
+                    Contact
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+            
+            <!-- CTA Button -->
+            <a href="#contact" class="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
+                Let's Talk
+            </a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-300 hover:text-white">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- Enhanced Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.08),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(147,51,234,0.06),transparent_50%)]"></div>
+    
+    <!-- Animated Background Elements -->
+    <div class="absolute top-20 left-10 w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-60"></div>
+    <div class="absolute top-40 right-20 w-1 h-1 bg-purple-400 rounded-full animate-ping opacity-40"></div>
+    <div class="absolute bottom-40 left-20 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce opacity-50"></div>
+    
+    <div class="container mx-auto px-6 text-center relative z-10">
+        <!-- Profile Section -->
+        <div class="mb-12">
+            <div class="relative inline-block group">
+                <!-- Profile Image -->
+                <div class="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-blue-500 shadow-2xl shadow-blue-500/20 transition-all duration-300 group-hover:shadow-blue-500/40 group-hover:scale-105">
+                    <img 
+                        src="H:\ME\portfolio\ProfilePic.jpeg" 
+                        alt="Muhamed Ayman" 
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    >
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="space-y-8">
+            <!-- Name and Title -->
+            <div class="space-y-4">
+                <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
+                    <span class="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
+                        Muhamed Ayman
+                    </span>
+                </h1>
+                
+                <div class="space-y-3">
+                    <p class="text-xl md:text-2xl text-blue-400 font-semibold">
+                        Software Engineer & IT Specialist
+                    </p>
+                    <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                        Passionate about creating beautiful, high-performance mobile applications 
+                        with modern technologies and clean architecture, while providing excellent technical support and troubleshooting.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div class="flex justify-center items-center space-x-8 py-6">
+                <div class="text-center group">
+                    <div class="text-3xl font-bold text-blue-400 group-hover:text-blue-300 transition-colors">3+</div>
+                    <div class="text-sm text-gray-400">Projects</div>
+                </div>
+                <div class="w-px h-12 bg-gray-600"></div>
+                <div class="text-center group">
+                    <div class="text-3xl font-bold text-purple-400 group-hover:text-purple-300 transition-colors">8+</div>
+                    <div class="text-sm text-gray-400">Certificates</div>
+                </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+                <a href="#contact" class="group px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
+                    <span class="flex items-center">
+                        Get In Touch
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </span>
+                </a>
+                <a href="#projects" class="group px-8 py-4 border-2 border-blue-500 text-blue-500 font-semibold rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300">
+                    <span class="flex items-center">
+                        View Projects
+                        <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform"></i>
+                    </span>
+                </a>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-6 pt-6">
+                <a href="https://github.com/muhamedayman66" class="group w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-all duration-300 hover:scale-110">
+                    <i class="fab fa-github text-gray-400 group-hover:text-white text-xl transition-colors"></i>
+                </a>
+                <a href="https://linkedin.com/in/muhamedayman66" class="group w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-all duration-300 hover:scale-110">
+                    <i class="fab fa-linkedin text-gray-400 group-hover:text-white text-xl transition-colors"></i>
+                </a>
+                <a href="mailto:muhamedayman500@gmail.com" class="group w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-all duration-300 hover:scale-110">
+                    <i class="fas fa-envelope text-gray-400 group-hover:text-white text-xl transition-colors"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900/30">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 gradient-text">About Me</h2>
+                <p class="text-gray-400">Flutter Developer & Technical Support Specialist</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                     <div class="space-y-6">
+                    <p class="text-lg text-gray-300">
+                        Fresh graduate from the Faculty of Computer Science and Information Technology, 
+                        Information Technology Department – Egyptian E-Learning University. Interested in 
+                        mobile application development, artificial intelligence, and technical support. With practical experience 
+                        through university projects, internships, and troubleshooting software issues. Skilled in diagnosing technical problems, 
+                        providing customer support, and ensuring smooth user experiences. Known for being a collaborative team player with excellent 
+                        communication and interpersonal skills, able to work effectively under pressure and meet deadlines.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 py-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text">8+</div>
+                            <p class="text-gray-400 text-sm">Courses & Certificates</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold gradient-text">3+</div>
+                            <p class="text-gray-400 text-sm">Projects Completed</p>
+                        </div>
+                    </div>
+                </div>
+                
+<div class="card p-6">
+                    <h3 class="text-xl font-semibold mb-6 gradient-text">Technical Skills</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Flutter/Dart</span>
+                                <span class="text-sm text-gray-400">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Python/AI</span>
+                                <span class="text-sm text-gray-400">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Firebase</span>
+                                <span class="text-sm text-gray-400">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Java/C#</span>
+                                <span class="text-sm text-gray-400">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Django</span>
+                                <span class="text-sm text-gray-400">83%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 83%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Technical Troubleshooting</span>
+                                <span class="text-sm text-gray-400">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Customer Support & Communication</span>
+                                <span class="text-sm text-gray-400">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium">Problem Solving</span>
+                                <span class="text-sm text-gray-400">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Featured Projects</h2>
+                <p class="text-gray-400">Mobile apps built with Flutter</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- IRECYCLE -->
+                <div class="card p-6 project-card">
+                    <div class="flutter-gradient w-full h-48 rounded-lg mb-6 flex items-center justify-center">
+                        <i class="fas fa-recycle text-white text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 gradient-text">IRECYCLE</h3>
+                    <p class="text-gray-400 mb-4 text-sm">
+                        AI-powered recycling app with 92% accuracy using MobileNetV2. 
+                        Complete reward system and waste classification. Demonstrates strong troubleshooting and problem-solving skills in integrating AI with mobile tech.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-badge">Flutter</span>
+                        <span class="tech-badge">TensorFlow</span>
+                        <span class="tech-badge">Django</span>
+                        <span class="tech-badge">PostgreSQL</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-green-400 font-medium">Graduation Project (A+)</span>
+                        <a href="https://github.com/muhamedayman66/irecycle" class="text-blue-400 hover:text-blue-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Gerda App -->
+                <div class="card p-6 project-card">
+                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
+                        <i class="fas fa-calendar-alt text-white text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 gradient-text">Gerda Medical</h3>
+                    <p class="text-gray-400 mb-4 text-sm">
+                        Healthcare appointment system with doctor search, 
+                        profile management, and seamless booking experience. Highlights communication skills in user-centric design and support features.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-badge">Flutter</span>
+                        <span class="tech-badge">Firebase</span>
+                        <span class="tech-badge">Figma</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-purple-400 font-medium">Freelance Project</span>
+                       <a href="https://github.com/muhamedayman66/gerda-medical" class="text-blue-400 hover:text-blue-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Meal App -->
+                <div class="card p-6 project-card">
+                    <div class="bg-gradient-to-r from-orange-500 to-red-500 w-full h-48 rounded-lg mb-6 flex items-center justify-center">
+                        <i class="fas fa-utensils text-white text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 gradient-text">Balanced Meals</h3>
+                    <p class="text-gray-400 mb-4 text-sm">
+                        Meal prep app with calorie tracking, ingredient customization, 
+                        and real-time nutritional analysis. Showcases ability to handle user queries and provide technical guidance through intuitive interfaces.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="tech-badge">FlutterFlow</span>
+                        <span class="tech-badge">Firebase</span>
+                        <span class="tech-badge">API</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-orange-400 font-medium">Freelance Project</span>
+                       <a href="https://github.com/muhamedayman66/balanced-meals" class="text-blue-400 hover:text-blue-300">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Contact Section --> 
+    <section id="contact" class="py-20 bg-gray-900/30"> 
+        <div class="container mx-auto px-6"> 
+            <div class="text-center mb-16"> 
+                <h2 class="text-4xl font-bold mb-4 gradient-text">Let's Connect</h2> 
+                <p class="text-gray-400">Ready to collaborate on your next project?</p> 
+            </div> 
+             
+            <div class="grid lg:grid-cols-2 gap-12 items-center"> 
+                <div class="space-y-8"> 
+                    <div class="flex items-center space-x-4 hover:transform hover:scale-105 transition-all duration-300"> 
+                        <div class="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg"> 
+                            <i class="fas fa-envelope text-white text-lg"></i> 
+                        </div> 
+                        <div> 
+                            <h3 class="font-semibold text-lg">Email</h3> 
+                            <a href="mailto:muhamedayman500@gmail.com" class="text-gray-400 hover:text-blue-400 transition-colors"> 
+                                muhamedayman500@gmail.com 
+                            </a> 
+                        </div> 
+                    </div> 
+                     
+                    <div class="flex items-center space-x-4 hover:transform hover:scale-105 transition-all duration-300"> 
+                        <div class="w-14 h-14 bg-gradient-to-r from-green-500 to-teal-600 rounded-full flex items-center justify-center shadow-lg"> 
+                            <i class="fas fa-phone text-white text-lg"></i> 
+                        </div> 
+                        <div> 
+                            <h3 class="font-semibold text-lg">Phone</h3> 
+                            <a href="tel:+201015287461" class="text-gray-400 hover:text-green-400 transition-colors">+20 101 528 7461</a> 
+                        </div> 
+                    </div> 
+                     
+                    <div class="flex items-center space-x-4 hover:transform hover:scale-105 transition-all duration-300"> 
+                        <div class="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center shadow-lg"> 
+                            <i class="fas fa-map-marker-alt text-white text-lg"></i> 
+                        </div> 
+                        <div> 
+                            <h3 class="font-semibold text-lg">Location</h3> 
+                            <p class="text-gray-400">Asyut, Egypt</p> 
+                        </div> 
+                    </div> 
+                    
+                    <div class="flex items-center space-x-4 hover:transform hover:scale-105 transition-all duration-300"> 
+                        <div class="w-14 h-14 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center shadow-lg"> 
+                            <i class="fab fa-linkedin text-white text-lg"></i> 
+                        </div> 
+                        <div> 
+                            <h3 class="font-semibold text-lg">LinkedIn</h3> 
+                            <a href="https://linkedin.com/in/muhamedayman66" target="_blank" class="text-gray-400 hover:text-blue-400 transition-colors"> 
+                                linkedin.com/in/muhamedayman66 
+                            </a> 
+                        </div> 
+                    </div> 
+                </div> 
+                 
+                <div class="card p-8 hover:shadow-2xl transition-shadow duration-300"> 
+                    <h3 class="text-2xl font-semibold mb-6 gradient-text">Why Work With Me?</h3> 
+                    <div class="space-y-4"> 
+                        <div class="flex items-center space-x-3 hover:bg-gray-800/50 p-2 rounded-lg transition-all"> 
+                            <i class="fas fa-mobile-alt text-blue-400 text-lg"></i> 
+                            <span>Mobile App Development Specialist</span> 
+                        </div> 
+                        <div class="flex items-center space-x-3 hover:bg-gray-800/50 p-2 rounded-lg transition-all"> 
+                            <i class="fas fa-palette text-purple-400 text-lg"></i> 
+                            <span>UI/UX Design with Figma</span> 
+                        </div> 
+                        <div class="flex items-center space-x-3 hover:bg-gray-800/50 p-2 rounded-lg transition-all"> 
+                            <i class="fas fa-code text-green-400 text-lg"></i> 
+                            <span>Clean, Scalable Code Architecture</span> 
+                        </div> 
+                        <div class="flex items-center space-x-3 hover:bg-gray-800/50 p-2 rounded-lg transition-all"> 
+                            <i class="fas fa-clock text-yellow-400 text-lg"></i> 
+                            <span>On-Time Delivery & Communication</span> 
+                        </div> 
+                        <div class="flex items-center space-x-3 hover:bg-gray-800/50 p-2 rounded-lg transition-all"> 
+                            <i class="fas fa-database text-indigo-400 text-lg"></i> 
+                            <span>Backend Development & Django APIs</span> 
+                        </div> 
+                        <div class="flex items-center space-x-3 hover:bg-gray-800/50 p-2 rounded-lg transition-all"> 
+                            <i class="fas fa-headset text-cyan-400 text-lg"></i> 
+                            <span>Technical Support & Troubleshooting</span> 
+                        </div> 
+                        <div class="flex items-center space-x-3 hover:bg-gray-800/50 p-2 rounded-lg transition-all"> 
+                            <i class="fas fa-users text-pink-400 text-lg"></i> 
+                            <span>Strong Interpersonal & Teamwork Skills</span> 
+                        </div> 
+                    </div> 
+                    
+                    <div class="mt-8 text-center"> 
+                        <a href="mailto:muhamedayman500@gmail.com" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-300 inline-block"> 
+                            Start a Project 
+                        </a> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">© 2025 Muhamed Ayman. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animate skills on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.skill-fill').forEach((fill, index) => {
+                        setTimeout(() => {
+                            fill.style.width = fill.dataset.width || fill.style.width;
+                        }, index * 200);
+                    });
+                }
+            });
+        });
+
+        document.querySelectorAll('.skill-fill').forEach(fill => {
+            fill.dataset.width = fill.style.width;
+            fill.style.width = '0%';
+        });
+
+        observer.observe(document.querySelector('#about'));
+    </script>
+</body>
+</html>
